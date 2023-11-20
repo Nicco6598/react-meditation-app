@@ -44,7 +44,7 @@ const HeaderSlider = () => {
     <header className="header-slider">
       <Slider {...sliderSettings}>
         <div>
-          <img src='/react-meditation-app/images/Slider1.jpg' alt="Slider 1" />
+          <img src="./Slider1.jpg" alt="Slider 1" />
         </div>
         <div>
           <img src="url_dell_immagine_2" alt="Slider 2" />
@@ -144,9 +144,35 @@ const BlogPosts = () => {
 
 const Footer = () => {
   return (
-    <footer>
-      {/* Aggiungi i tuoi contenuti del footer */}
-      <div className="footer">Footer</div>
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-section">
+          <h4>Mappa del Sito</h4>
+          {/* Aggiungi la mappa del sito o i link della mappa del sito */}
+        </div>
+        <div className="footer-section">
+          <input type="text" placeholder="Cerca..." />
+          <button>Cerca</button>
+        </div>
+        <div className="footer-section">
+          <h4>Seguici</h4>
+          {/* Aggiungi i tuoi social icons/link qui */}
+          <div className="social-icons">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-facebook"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <i className="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="copyright">
+        <p>&copy; 2023 MediationField. Tutti i diritti riservati.</p>
+      </div>
     </footer>
   );
 };
