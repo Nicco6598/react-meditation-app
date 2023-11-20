@@ -3,6 +3,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React, { useState, useEffect } from 'react';
+import imageName from './Slider1.jpg';
+import slider2 from './Slider2.jpg';
+import logo from './Logo.png'
 
 
 function App() {
@@ -20,7 +23,9 @@ function App() {
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="logo">Logo</div>
+      <div className="logo">
+      <img src={logo} alt="Slider 2" />
+      </div>
       <ul className="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#timer">Timer</a></li>
@@ -32,27 +37,40 @@ const Navbar = () => {
 };
 
 const HeaderSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    beforeChange: (current, next) => setCurrentSlide(next),
   };
 
   return (
     <header className="header-slider">
       <Slider {...sliderSettings}>
         <div>
-          <img src="./Slider1.jpg" alt="Slider 1" />
+          <img src={imageName} alt="Slider 1" />
+          <div className={`slide-text ${currentSlide === 0 ? 'visible' : ''}`}>
+            <h2>Benvenuto nel nostro Sito di Meditazione</h2>
+            <p>Scopri la pace interiore attraverso la meditazione guidata.</p>
+          </div>
         </div>
         <div>
-          <img src="url_dell_immagine_2" alt="Slider 2" />
+          <img src={slider2} alt="Slider 2" />
+          <div className={`slide-text ${currentSlide === 1 ? 'visible' : ''}`}>
+            <h2>Connetti la tua Mente, Corpo e Spirito</h2>
+            <p>Esplora i benefici della meditazione per una vita equilibrata.</p>
+          </div>
         </div>
+        {/* Aggiungi più slide con testo se necessario */}
       </Slider>
     </header>
   );
 };
+
 
 const Timer = () => {
   const [inputSeconds, setInputSeconds] = useState('');
@@ -114,15 +132,27 @@ const BlogPosts = () => {
   const posts = [
     {
       id: 1,
-      image: '/react-meditation-app/public/Slider1.jpg',
-      title: 'Meditare in aree verdi',
-      description: 'Breve descrizione del post 1.',
+      image: imageName,
+      title: 'Meditare in silenzio',
+      description: 'La sensazione di pace del momento',
     },
     {
       id: 2,
-      image: 'url_dell_immagine_2',
-      title: 'Titolo Post 2',
-      description: 'Breve descrizione del post 2.',
+      image: slider2,
+      title: 'Meditare in solitudine',
+      description: 'I vantaggi del effetuarlo da soli',
+    },
+    {
+      id: 3,
+      image: imageName,
+      title: 'Meditare in silenzio',
+      description: 'La sensazione di pace del momento',
+    },
+    {
+      id: 4,
+      image: slider2,
+      title: 'Meditare in solitudine',
+      description: 'I vantaggi del effetuarlo da soli',
     },
     // Aggiungi più post se necessario
   ];

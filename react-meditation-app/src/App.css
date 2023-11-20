@@ -13,13 +13,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: #060505; /* Sfondo nero */
+  background-color: #06050500; /* Sfondo nero */
   color: #e3d1b5; /* Testo beige */
+  z-index: 100;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  height: 50px;
+  width: 50px;
 }
 
 .nav-links {
@@ -46,6 +49,34 @@ body {
 /* Header Slider */
 .header-slider {
   width: 100%;
+  position: relative;
+}
+
+.slide-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #e3d1b5; /* Testo beige */
+  background-color: rgba(6, 5, 5, 0.301); /* Sfondo semitrasparente */
+  padding: 20px; /* Aggiunto padding */
+  border-radius: 10px; /* Bordo stondato */
+  opacity: 0; /* Inizialmente trasparente */
+  transition: opacity 0.3s ease; /* Aggiunto un'animazione di dissolvenza */
+}
+
+.visible {
+  opacity: 1; /* Renderlo completamente opaco quando visibile */
+}
+
+.slide-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.slide-text p {
+  font-size: 1.5rem;
 }
 
 .slick-slider {
@@ -55,7 +86,8 @@ body {
 
 .slick-slide img {
   width: 100%;
-  height: auto;
+  height: 100vh;
+  object-fit: cover;
 }
 
 /* Timer */
@@ -65,7 +97,7 @@ body {
   background-color: #060505; /* Sfondo nero */
   color: #e3d1b5; /* Testo beige */
   border-radius: 10px; /* Bordo stondato */
-  box-shadow: 0 5px 20px rgba(227, 209, 181, 0.2); /* Ombra moderna */
+  box-shadow: 0 10px 20px rgba(227, 209, 181, 0.2); /* Ombra moderna */
   padding: 20px;
 }
 
@@ -109,14 +141,14 @@ body {
 .blog-card {
   background-color: #060505; /* Sfondo nero */
   border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(227, 209, 181, 0.4);
+  box-shadow: 0 10px 15px rgba(227, 209, 181, 0.4);
   margin: 20px;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
 
 .blog-card:hover {
-  box-shadow: 0 5px 20px rgba(255, 186, 76, 0.4);
+  box-shadow: 0 10px 15px rgba(255, 186, 76, 0.4);
 }
 
 .blog-image {
