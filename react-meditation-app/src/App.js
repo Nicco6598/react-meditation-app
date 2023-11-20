@@ -44,12 +44,11 @@ const HeaderSlider = () => {
     <header className="header-slider">
       <Slider {...sliderSettings}>
         <div>
-          <img src="/react-meditation-app/public/Slider1.jpg" alt="Slider 1" />
+          <img src='/react-meditation-app/images/Slider1.jpg' alt="Slider 1" />
         </div>
         <div>
           <img src="url_dell_immagine_2" alt="Slider 2" />
         </div>
-        {/* Aggiungi più slide se necessario */}
       </Slider>
     </header>
   );
@@ -112,10 +111,33 @@ const Timer = () => {
 };
 
 const BlogPosts = () => {
+  const posts = [
+    {
+      id: 1,
+      image: '/react-meditation-app/public/Slider1.jpg',
+      title: 'Meditare in aree verdi',
+      description: 'Breve descrizione del post 1.',
+    },
+    {
+      id: 2,
+      image: 'url_dell_immagine_2',
+      title: 'Titolo Post 2',
+      description: 'Breve descrizione del post 2.',
+    },
+    // Aggiungi più post se necessario
+  ];
+
   return (
-    <section>
-      {/* Aggiungi i tuoi blog posts sotto forma di carte */}
-      <div className="blog-posts">Blog Posts</div>
+    <section className="blog-section">
+      {posts.map((post) => (
+        <div key={post.id} className="blog-card">
+          <img src={post.image} alt={`Post ${post.id}`} className="blog-image" />
+          <div className="blog-content">
+            <h3 className="blog-title">{post.title}</h3>
+            <p className="blog-description">{post.description}</p>
+          </div>
+        </div>
+      ))}
     </section>
   );
 };
