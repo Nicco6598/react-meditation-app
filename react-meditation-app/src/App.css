@@ -1,0 +1,128 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 0;
+  background-color: #000000; /* Sostituisci con il colore desiderato */
+  color: rgb(0, 0, 0); /* Sostituisci con il colore del testo desiderato */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white; /* Sostituisci con il colore del testo desiderato */
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff9900; /* Sostituisci con il colore desiderato per l'hover */
+}
+
+.header-slider {
+  width: 100%;
+}
+
+.slick-slider {
+  position: relative;
+  display: block;
+}
+
+.slick-slide img {
+  width: 100%;
+  height: auto;
+}
+
+/* Aggiungi stili per il timer */
+.timer {
+  text-align: center;
+  margin: 20px;
+  background-color: #fff; /* Colore di sfondo */
+  border-radius: 10px; /* Bordo stondato */
+  box-shadow: 0 5px 12px rrgba(59, 59, 59, 0.322); /* Ombra moderna */
+  padding: 20px;
+}
+
+.timer p {
+  font-size: 2rem; /* Testo più grande */
+  color: #6720aa; /* Colore viola */
+}
+
+.timer input {
+  width: 120px; /* Larghezza dell'input */
+  margin: 10px 0; /* Margin sopra e sotto */
+  padding: 10px;
+  border: 1px solid #ccc; /* Bordo grigio */
+  border-radius: 5px; /* Bordo stondato */
+  text-align: center;
+}
+
+.timer button {
+  margin: 15px;
+  padding: 10px 20px; /* Più spazio per rendere il pulsante più grande */
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #6720aa; /* Colore viola */
+  color: #fff; /* Testo bianco */
+  border: none;
+  border-radius: 5px; /* Bordo stondato */
+  transition: background-color 0.3s ease; /* Transizione colore di sfondo */
+}
+
+.timer button:hover {
+  background-color: #9c31ff; /* Colore viola più scuro al passaggio del mouse */
+}
