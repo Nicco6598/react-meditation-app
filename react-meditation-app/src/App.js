@@ -9,7 +9,6 @@ import logo from './Logo.png';
 import post1 from './Post1.jpg';
 import post2 from './Post2.jpg';
 
-
 function App() {
   return (
     <div className="App">
@@ -223,14 +222,19 @@ const AboutUsWithNewsletter = () => {
 const Footer = () => {
   return (
     <footer className="footer">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></link>
       <div className="footer-content">
         <div className="footer-section">
           <h4>Mappa del Sito</h4>
-          {/* Aggiungi la mappa del sito o i link della mappa del sito */}
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#timer">Timer</a></li>
+            <li><a href="#about">Chi Siamo</a></li>
+          </ul>
         </div>
         <div className="footer-section">
           <h4>Seguici</h4>
-          {/* Aggiungi i tuoi social icons/link qui */}
           <div className="social-icons">
             <a href="#" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-facebook"></i>

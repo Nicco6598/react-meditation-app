@@ -68,7 +68,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff; /* Colore del testo */
+  color: #e3d1b5;; /* Colore del testo */
 }
 
 .header-content h1 {
@@ -84,7 +84,7 @@ body {
 .cta-button {
   padding: 10px 20px;
   background-color: #8a2be2; /* Colore viola */
-  color: #fff; /* Testo bianco */
+  color: #e3d1b5;; /* Testo bianco */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -103,7 +103,7 @@ body {
   color: #e3d1b5; /* Testo beige */
   border-radius: 10px; /* Bordo stondato */
   padding: 20px;
-  border: 1px solid #686868;
+  border: 1px solid #e3d1b5;;
 }
 
 .timer p {
@@ -114,7 +114,7 @@ body {
   width: 120px;
   margin: 10px 5px;
   padding: 10px;
-  border: 1px solid rgba(227, 209, 181, 0.4);
+  border: 1px solid #e3d1b5;;
   border-radius: 5px;
   text-align: center;
 }
@@ -125,7 +125,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   background-color: #8a2be2; /* Colore viola */
-  color: #fff; /* Testo bianco */
+  color: #e3d1b5;; /* Testo bianco */
   border: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -153,7 +153,7 @@ body {
 }
 
 .blog-card:hover {
-  box-shadow: 0 0px 25px rgba(255, 186, 76, 0.4);
+  box-shadow: 0 0px 25px rgba(255, 76, 174, 0.4);
 }
 
 .blog-image {
@@ -201,6 +201,13 @@ body {
   margin-bottom: 10px;
 }
 
+.footer-section ul{
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+  color: #060505;
+}
+
 input,
 .button,
 footer button {
@@ -213,7 +220,7 @@ footer button {
 .button,
 footer button {
   background-color: #8a2be2; /* Colore viola */
-  color: #fff; /* Testo bianco */
+  color: #e3d1b5; /* Testo bianco */
   transition: background-color 0.3s ease;
 }
 
@@ -223,10 +230,16 @@ footer button:hover {
   cursor: pointer;
 }
 
-.social-icons a {
-  color: #e3d1b5;
-  margin-right: 10px;
+.social-icons a{
+  color: #060505;
+  margin-right: 20px;
+  justify-content: center;
   font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover{
+  color: #6a1a9b;
 }
 
 .copyright {
