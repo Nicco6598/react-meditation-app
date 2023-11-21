@@ -1,6 +1,6 @@
 /* Stili globali */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 0px 100px;
   padding: 0;
   background-color: #060505; /* Sfondo nero */
@@ -9,13 +9,18 @@ body {
 
 /* Navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 0px;
+  width: 100%;
+  background-color: #06050570;
+  color: #e3d1b5;
+  height: 60px; /* Altezza desiderata */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #06050500; /* Sfondo nero */
-  color: #e3d1b5; /* Testo beige */
-  z-index: 100;
+  z-index: 1000; /* Assicura che la navbar sia sopra gli altri elementi */
 }
 
 .logo {
@@ -365,14 +370,13 @@ footer button:hover {
     justify-content: center;
     align-items: center;
   }
-  .logo {
-    width: 75px;
-    height: 75px;
-    margin-right: 0px;
-  }
+
   body{
     margin: 0px 30px;
     overflow-x: hidden;
+  }
+  .logo {
+    margin-right: 0px;
   }
   .about-us-with-newsletter {
     flex-direction: column; /* Riga nella versione desktop */
