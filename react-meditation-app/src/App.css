@@ -1,7 +1,7 @@
 /* Stili globali */
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0px 50px;
+  margin: 0px 100px;
   padding: 0;
   background-color: #060505; /* Sfondo nero */
   color: #e3d1b5; /* Testo beige */
@@ -10,7 +10,7 @@ body {
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 20px;
   background-color: #06050500; /* Sfondo nero */
@@ -19,10 +19,16 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  height: 50px;
-  width: 50px;
+  max-height: 75px;
+  max-width: 75px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.logo img {
+  height: auto;
+  max-width: 100%; /* Garantisce che l'immagine non superi la larghezza massima specificata */
+  max-height: 100%;
 }
 
 .nav-links {
@@ -46,48 +52,47 @@ body {
   color: #6a1a9b; /* Colore viola all'hover */
 }
 
-/* Header Slider */
-.header-slider {
-  width: 100%;
+.header {
   position: relative;
+  text-align: center;
 }
 
-.slide-text {
+.header-image {
+  width: 100%;
+  height: 100vh; /* Altezza massima dell'immagine */
+  object-fit: cover; /* Copre completamente l'area designata senza distorcere l'immagine */
+}
+
+.header-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
-  color: #e3d1b5; /* Testo beige */
-  background-color: rgba(6, 5, 5, 0.301); /* Sfondo semitrasparente */
-  padding: 20px; /* Aggiunto padding */
-  border-radius: 10px; /* Bordo stondato */
-  opacity: 0; /* Inizialmente trasparente */
-  transition: opacity 0.3s ease; /* Aggiunto un'animazione di dissolvenza */
+  color: #fff; /* Colore del testo */
 }
 
-.visible {
-  opacity: 1; /* Renderlo completamente opaco quando visibile */
-}
-
-.slide-text h2 {
+.header-content h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-.slide-text p {
-  font-size: 1.5rem;
+.header-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 
-.slick-slider {
-  position: relative;
-  display: block;
+.cta-button {
+  padding: 10px 20px;
+  background-color: #8a2be2; /* Colore viola */
+  color: #fff; /* Testo bianco */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.slick-slide img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
+.cta-button:hover {
+  background-color: #6a1a9b; /* Colore viola più scuro all'hover */
 }
 
 /* Timer */
@@ -133,16 +138,16 @@ body {
 /* Blog Posts */
 .blog-section {
   display: flex;
-  justify-content: space-around;
+  justify-content:space-between;
   flex-wrap: wrap;
-  margin: 30px;
+  margin: 30px 0px;
 }
 
 .blog-card {
   background-color: #060505; /* Sfondo nero */
   border-radius: 10px;
   box-shadow: 0 0px 15px rgba(227, 209, 181, 0.4);
-  margin: 20px;
+  margin: 30px 15px;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
@@ -153,32 +158,33 @@ body {
 
 .blog-image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
-  border-bottom: 1px solid #e3d1b5;
 }
 
 .blog-content {
   padding: 20px;
+  text-align: center;
 }
 
 .blog-title {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  margin-top: 0px;
 }
 
 .blog-description {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #e3d1b5;
 }
 
 /* Footer */
 .footer {
-  background-color: #060505; /* Sfondo nero */
-  color: #e3d1b5; /* Testo beige */
+  background-color: #e3d1b5; /* Colore di sfondo invertito */
+  color: #060505; /* Colore del testo invertito */
   padding: 20px;
   text-align: center;
-  margin-top: 70px;
+  margin-top: -50px;
 }
 
 .footer-content {
@@ -229,7 +235,8 @@ footer button:hover {
 
 .section {
   display: flex;
-  margin: 20px 0;
+  margin: 50px 0;
+  justify-content: center;
 }
 
 .section-text {
@@ -249,8 +256,8 @@ footer button:hover {
 .section-image {
   flex: 1;
   padding: 20px;
-  max-width: 750px; /* Imposta la larghezza massima a 150px */
-  max-height: 750px; /* Imposta l'altezza massima a 150px */
+  max-width: 400px; /* Imposta la larghezza massima a 150px */
+  max-height: 400px; /* Imposta l'altezza massima a 150px */
   overflow: hidden; /* Nasconde qualsiasi parte dell'immagine che supera le dimensioni specificate */
 }
 
@@ -263,3 +270,112 @@ footer button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra */
 }
 
+.about-us-with-newsletter {
+  display: flex;
+  flex-direction: column; /* Colonna nella versione mobile */
+  margin: 40px 0;
+  background-color: #e3d1b5; /* Colore di sfondo invertito */
+  color: #060505; /* Colore del testo invertito */
+  border-radius: 10px;
+}
+.newsletter-form h2,
+.newsletter-form p {
+  color: #060505; /* Colore del testo invertito */
+}
+
+.newsletter-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter-form label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #060505; /* Colore del testo invertito */
+}
+
+.newsletter-form input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #060505;
+  border-radius: 5px;
+  background-color: #e3d1b5; /* Colore di sfondo invertito */
+  color: #060505; /* Colore del testo invertito */
+}
+
+.newsletter-form button {
+  padding: 10px;
+  background-color: #8a2be2; /* Colore viola */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #6a1a9b; /* Colore viola più scuro all'hover */
+}
+
+@media (min-width: 768px) {
+  .about-us-with-newsletter {
+    flex-direction: row; /* Riga nella versione desktop */
+  }
+
+  .about-us-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #e3d1b5; /* Colore di sfondo invertito */
+    color: #060505; /* Colore del testo invertito */
+    border-radius: 10px;
+  }
+
+  .newsletter-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e3d1b5; /* Colore di sfondo invertito */
+    color: #060505; /* Colore del testo invertito */
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column; /* Imposta la direzione della colonna per la versione mobile */
+  }
+
+  .section-text,
+  .section-image {
+    width: 100%; /* Occupa l'intera larghezza della colonna */
+    justify-content: center;
+    align-items: center;
+  }
+  .logo {
+    width: 75px;
+    height: 75px;
+    margin-right: 0px;
+  }
+  body{
+    margin: 0px 30px;
+  }
+  .about-us-with-newsletter {
+    flex-direction: column; /* Riga nella versione desktop */
+    justify-content: center;
+  }
+
+  .about-us-content {
+    padding: 20px;
+    background-color: #e3d1b5; /* Colore di sfondo invertito */
+    color: #060505; /* Colore del testo invertito */
+    border-radius: 10px;
+  }
+
+  .newsletter-form {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e3d1b5; /* Colore di sfondo invertito */
+    color: #060505; /* Colore del testo invertito */
+    border-radius: 10px;
+  }
+}

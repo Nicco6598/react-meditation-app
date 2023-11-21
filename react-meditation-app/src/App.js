@@ -14,11 +14,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <HeaderSlider />
+      <Header />
       <SectionWithTextOnLeft />
       <SectionWithTextOnRight />
       <BlogPosts />
       <Timer />
+      <AboutUsWithNewsletter />
       <Footer />
     </div>
   );
@@ -28,50 +29,27 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-      <img src={logo} alt="Slider 2" />
+      <img src={logo} alt="logo sito" />
       </div>
       <ul className="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#timer">Timer</a></li>
         <li><a href="#blog">Blog</a></li>
+        <li><a href="#timer">Timer</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
   );
 };
 
-const HeaderSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    beforeChange: (current, next) => setCurrentSlide(next),
-  };
-
+const Header = () => {
   return (
-    <header className="header-slider">
-      <Slider {...sliderSettings}>
-        <div>
-          <img src={imageName} alt="Slider 1" />
-          <div className={`slide-text ${currentSlide === 0 ? 'visible' : ''}`}>
-            <h2>Benvenuto nel nostro Sito di Meditazione</h2>
-            <p>Scopri la pace interiore attraverso la meditazione guidata.</p>
-          </div>
-        </div>
-        <div>
-          <img src={slider2} alt="Slider 2" />
-          <div className={`slide-text ${currentSlide === 1 ? 'visible' : ''}`}>
-            <h2>Connetti la tua Mente, Corpo e Spirito</h2>
-            <p>Esplora i benefici della meditazione per una vita equilibrata.</p>
-          </div>
-        </div>
-        {/* Aggiungi più slide con testo se necessario */}
-      </Slider>
-    </header>
+    <div className="header">
+      <img src={imageName} alt="Header" className="header-image" />
+      <div className="header-content">
+        <h1>Benvenuto nel nostro Sito</h1>
+        <p>Scopri la tranquillità attraverso la meditazione e la consapevolezza.</p>
+        <button className="cta-button">Inizia la Meditazione</button>
+      </div>
+    </div>
   );
 };
 
@@ -128,7 +106,7 @@ const Timer = () => {
     <div className="timer">
       <p>{formatTime(seconds)}</p>
       <input ref={inputRef} type="number" placeholder="Inserisci i secondi" />
-      <div>
+      <div id="timer">
         <button onClick={toggleTimer}>
           {isActive ? (isPaused ? 'Riprendi' : 'Pausa') : 'Avvia'}
         </button>
@@ -170,7 +148,7 @@ const BlogPosts = () => {
   return (
     <section className="blog-section">
       {posts.map((post) => (
-        <div key={post.id} className="blog-card">
+        <div key={post.id} className="blog-card" id="blog">
           <img src={post.image} alt={`Post ${post.id}`} className="blog-image" />
           <div className="blog-content">
             <h3 className="blog-title">{post.title}</h3>
@@ -186,8 +164,10 @@ const SectionWithTextOnLeft = () => {
   return (
     <div className="section">
       <div className="section-text">
-        <h2>Titolo della Sezione</h2>
-        <p>Testo descrittivo della sezione. Puoi aggiungere tutte le informazioni che desideri.</p>
+        <h2>Oasi Interiore: Meditazione nel Silenzio del Deserto</h2>
+        <p>Scopri la pace nel deserto con la nostra sezione di meditazione. 
+          Una foto suggestiva cattura un momento di serenità mentre ti guidiamo attraverso sessioni che fondono la quiete del deserto con la tua pratica meditativa. 
+          Trova l'oasi della calma interiore e rinnova la tua energia attraverso la meditazione in questo ambiente unico.</p>
       </div>
       <div className="section-image">
         <img src={post2} alt="Immagine Sezione" />
@@ -205,12 +185,40 @@ const SectionWithTextOnRight = () => {
 
       </div>
       <div className="section-text">
-        <h2>Altro Titolo della Sezione</h2>
-        <p>Altre informazioni interessanti sulla sezione. Puoi personalizzare il testo qui.</p>
+        <h2>Serenità Domestica: Meditazione nel Tuo Rifugio</h2>
+        <p>
+        Esplora la pace nel comfort del tuo spazio con la nostra sessione di meditazione casalinga. 
+        Attraverso immagini serene, ti guideremo in sessioni che trasformano la tua casa in un rifugio di calma e consapevolezza. 
+        Sperimenta la serenità della meditazione in un contesto familiare, riscoprendo l'equilibrio interiore senza dover uscire dalle tue mura. 
+        Connetti mente e spirito nel tuo spazio sicuro e trova la tranquillità quotidiana attraverso la meditazione.
+        </p>
       </div>
     </div>
   );
 };
+
+const AboutUsWithNewsletter = () => {
+  return (
+    <div className="about-us-with-newsletter" id="about">
+      <div className="about-us-content">
+        <h2>Chi Siamo</h2>
+        <p>
+          Benvenuti nel nostro sito di meditazione! Siamo un team appassionato che si impegna a
+          guidarti nel viaggio della consapevolezza e della tranquillità attraverso la pratica della meditazione.
+        </p>
+      </div>
+      <div className="newsletter-form">
+        <h2>Iscriviti alla Newsletter</h2>
+        <p>Rimani aggiornato sulle ultime novità del blog.</p>
+        <form>
+          <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
+          <button type="submit">Iscriviti</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
 
 const Footer = () => {
   return (
@@ -219,10 +227,6 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Mappa del Sito</h4>
           {/* Aggiungi la mappa del sito o i link della mappa del sito */}
-        </div>
-        <div className="footer-section">
-          <input type="text" placeholder="Cerca..." />
-          <button>Cerca</button>
         </div>
         <div className="footer-section">
           <h4>Seguici</h4>
