@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <Navbar />
       <Header />
+      <Timer />
       <SectionWithTextOnLeft />
       <SectionWithTextOnRight />
       <BlogPosts />
-      <Timer />
       <AboutUsWithNewsletter />
       <Footer />
     </div>
@@ -62,13 +62,21 @@ const Timer = () => {
 
   const toggleTimer = () => {
     if (!isActive) {
-      setIsActive(true);
-      setIsPaused(false);
-
       if (inputRef.current) {
         const secondsInput = parseInt(inputRef.current.value, 10);
-        setSeconds(secondsInput || 0);
-        setInitialTime(secondsInput || 0);
+  
+        // Verifica se il valore inserito è positivo
+        const positiveSeconds = Math.max(0, secondsInput);
+  
+        if (positiveSeconds > 0) {
+          setSeconds(positiveSeconds);
+          setInitialTime(positiveSeconds);
+          setIsActive(true);
+          setIsPaused(false);
+        } else {
+          // Aggiungi qui eventuali azioni per gestire il caso in cui il valore non è positivo
+          alert('Inserisci un valore positivo per avviare il timer.');
+        }
       }
     } else {
       setIsPaused(!isPaused);
