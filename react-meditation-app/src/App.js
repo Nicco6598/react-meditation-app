@@ -2,10 +2,12 @@ import './App.css'; // Aggiungi gli stili CSS appropriati
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import imageName from './Slider1.jpg';
 import slider2 from './Slider2.jpg';
-import logo from './Logo.png'
+import logo from './Logo.png';
+import post1 from './Post1.jpg';
+import post2 from './Post2.jpg';
 
 
 function App() {
@@ -13,8 +15,10 @@ function App() {
     <div className="App">
       <Navbar />
       <HeaderSlider />
-      <Timer />
+      <SectionWithTextOnLeft />
+      <SectionWithTextOnRight />
       <BlogPosts />
+      <Timer />
       <Footer />
     </div>
   );
@@ -73,56 +77,62 @@ const HeaderSlider = () => {
 
 
 const Timer = () => {
-  const [inputSeconds, setInputSeconds] = useState('');
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [initialTime, setInitialTime] = useState(0);
+  const inputRef = useRef(null);
 
-  useEffect(() => {
-    let interval;
+  const toggleTimer = () => {
+    if (!isActive) {
+      setIsActive(true);
+      setIsPaused(false);
 
-    if (isActive && seconds > 0) {
-      interval = setInterval(() => {
-        setSeconds((prevSeconds) => prevSeconds - 1);
-      }, 1000);
-    } else if (seconds === 0) {
-      setIsActive(false);
+      if (inputRef.current) {
+        const secondsInput = parseInt(inputRef.current.value, 10);
+        setSeconds(secondsInput || 0);
+        setInitialTime(secondsInput || 0);
+      }
+    } else {
+      setIsPaused(!isPaused);
     }
-
-    return () => clearInterval(interval);
-  }, [isActive, seconds]);
-
-  const startPauseTimer = () => {
-    setIsActive((prevIsActive) => !prevIsActive);
-  };
-
-  const stopTimer = () => {
-    setIsActive(false);
-    setSeconds(0);
   };
 
   const resetTimer = () => {
     setIsActive(false);
-    setSeconds(inputSeconds);
-    setInputSeconds('');
+    setIsPaused(false);
+    setSeconds(initialTime);
   };
 
-  const handleInputChange = (e) => {
-    const { value } = e.target;
-    setInputSeconds(value);
+  const tick = () => {
+    if (isActive && !isPaused && seconds > 0) {
+      setSeconds((prevSeconds) => prevSeconds - 1);
+    } else if (isActive && !isPaused && seconds === 0) {
+      setIsActive(false);
+      alert('Timer scaduto!');
+    }
   };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const remainingSeconds = time % 60;
+    return `${String(minutes).padStart(2, '0')} Minuti e ${String(remainingSeconds).padStart(2, '0')} Secondi`;
+  };
+
+  React.useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+    return () => clearInterval(timerID);
+  }, [isActive, isPaused, seconds]);
 
   return (
     <div className="timer">
-      <p>Timer: {Math.floor(seconds / 60)} min {seconds % 60} sec</p>
+      <p>{formatTime(seconds)}</p>
+      <input ref={inputRef} type="number" placeholder="Inserisci i secondi" />
       <div>
-        <input
-          type="number"
-          placeholder="Inserisci i secondi"
-          value={inputSeconds}
-          onChange={handleInputChange}
-        />
-        <button onClick={startPauseTimer}>{isActive ? 'Pausa' : 'Avvia'}</button>
-        <button onClick={resetTimer}>Imposta</button>
+        <button onClick={toggleTimer}>
+          {isActive ? (isPaused ? 'Riprendi' : 'Pausa') : 'Avvia'}
+        </button>
+        <button onClick={resetTimer}>Resetta</button>
       </div>
     </div>
   );
@@ -169,6 +179,36 @@ const BlogPosts = () => {
         </div>
       ))}
     </section>
+  );
+};
+
+const SectionWithTextOnLeft = () => {
+  return (
+    <div className="section">
+      <div className="section-text">
+        <h2>Titolo della Sezione</h2>
+        <p>Testo descrittivo della sezione. Puoi aggiungere tutte le informazioni che desideri.</p>
+      </div>
+      <div className="section-image">
+        <img src={post2} alt="Immagine Sezione" />
+      </div>
+    </div>
+  );
+};
+
+// Nuova sezione con testo a destra e immagine a sinistra
+const SectionWithTextOnRight = () => {
+  return (
+    <div className="section">
+      <div className="section-image">
+        <img src={post1} alt="Immagine Sezione" />
+
+      </div>
+      <div className="section-text">
+        <h2>Altro Titolo della Sezione</h2>
+        <p>Altre informazioni interessanti sulla sezione. Puoi personalizzare il testo qui.</p>
+      </div>
+    </div>
   );
 };
 
