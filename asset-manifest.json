@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-meditation-app/index.html/static/css/main.b2d0c1ac.chunk.css",
+    "main.js": "/react-meditation-app/index.html/static/js/main.086bcfac.chunk.js",
+    "main.js.map": "/react-meditation-app/index.html/static/js/main.086bcfac.chunk.js.map",
+    "runtime~main.js": "/react-meditation-app/index.html/static/js/runtime~main.6ab24108.js",
+    "runtime~main.js.map": "/react-meditation-app/index.html/static/js/runtime~main.6ab24108.js.map",
+    "static/css/2.26138001.chunk.css": "/react-meditation-app/index.html/static/css/2.26138001.chunk.css",
+    "static/js/2.b7d00931.chunk.js": "/react-meditation-app/index.html/static/js/2.b7d00931.chunk.js",
+    "static/js/2.b7d00931.chunk.js.map": "/react-meditation-app/index.html/static/js/2.b7d00931.chunk.js.map",
+    "static/js/3.d3e4d6ea.chunk.js": "/react-meditation-app/index.html/static/js/3.d3e4d6ea.chunk.js",
+    "static/js/3.d3e4d6ea.chunk.js.map": "/react-meditation-app/index.html/static/js/3.d3e4d6ea.chunk.js.map",
+    "index.html": "/react-meditation-app/index.html/index.html",
+    "precache-manifest.701a64fe80d6a5cbc59a3771de936367.js": "/react-meditation-app/index.html/precache-manifest.701a64fe80d6a5cbc59a3771de936367.js",
+    "service-worker.js": "/react-meditation-app/index.html/service-worker.js",
+    "static/css/2.26138001.chunk.css.map": "/react-meditation-app/index.html/static/css/2.26138001.chunk.css.map",
+    "static/css/main.b2d0c1ac.chunk.css.map": "/react-meditation-app/index.html/static/css/main.b2d0c1ac.chunk.css.map",
+    "static/media/Logo.png": "/react-meditation-app/index.html/static/media/Logo.8a88a9ef.png",
+    "static/media/Post1.jpg": "/react-meditation-app/index.html/static/media/Post1.7c82c67a.jpg",
+    "static/media/Post2.jpg": "/react-meditation-app/index.html/static/media/Post2.079470bc.jpg",
+    "static/media/Slider1.jpg": "/react-meditation-app/index.html/static/media/Slider1.a139b638.jpg",
+    "static/media/Slider2.jpg": "/react-meditation-app/index.html/static/media/Slider2.c3a5404a.jpg",
+    "static/media/slick-theme.css": "/react-meditation-app/index.html/static/media/slick.f97e3bbf.svg"
+  }
+}
