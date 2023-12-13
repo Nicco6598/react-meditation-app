@@ -1,5 +1,5 @@
 {
-  "homepage": "https://nicco6598.github.io/react-meditation-app/",
+  "homepage": "http://nicco6598.github.io/react-meditation-app/",
   "name": "react-meditation-app",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d src",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
