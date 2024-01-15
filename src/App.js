@@ -14,10 +14,11 @@ import Footer from './Footer';
 
 
 function App() {
+  const [showTimer, setShowTimer] = useState(false);
   return (
     <div className="App">
       <Navbar />
-      <Header />
+      {showTimer ? <Timer /> : <Header />}
       <Timer />
       <SectionWithTextOnLeft />
       <SectionWithTextOnRight />

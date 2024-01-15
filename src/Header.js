@@ -8,7 +8,9 @@ const Header = () => {
       <div className="header-content">
         <h1>Benvenuto nel nostro Sito</h1>
         <p>Scopri la tranquillità attraverso la meditazione e la consapevolezza.</p>
-        <button className="cta-button">Inizia la Meditazione</button>
+        <a href="#timer">
+          <button className="cta-button">Inizia la Meditazione</button>
+        </a>
       </div>
     </div>
   );
